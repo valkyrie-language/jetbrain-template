@@ -1,0 +1,63 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "$id": "https://example.com/valkyrie-template-schema.json",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "dependency": {
+            "type": "object",
+            "additionalProperties": {
+                "oneOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "path": {
+                                "type": "string"
+                            },
+                            "version": {
+                                "type": "string",
+                                "pattern": "^\\d{4}\\.\\d+\\.\\*$"
+                            },
+                            "feature": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                ]
+                            },
+                            "git": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "version"
+                        ]
+                    }
+                ]
+            }
+        },
+        "dependency-development": {
+            "type": "object",
+            "additionalProperties": true
+        },
+        "dependency-build": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "required": [
+        "name",
+        "dependency"
+    ]
+}

@@ -1,0 +1,11 @@
+[*]
+charset = utf-8
+end_of_line = lf
+
+[*.vk]
+indent_style = space
+indent_size = 4
+
+[*.json]
+indent_style = space
+indent_size = 4
