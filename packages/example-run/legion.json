@@ -1,11 +1,8 @@
 {
     name: "valkyrie-template",
-    /// workspace or a.b.c.d
     version: "workspace",
-    // string or list
     author: "name <email>",
     "dependency": {
-        // workspace or a or a.* or a.b or a.b.* or ...
         "@org.name/lib1": "2024.1.2.3",
         "@org.name/lib2": "workspace",
         "@org.name/lib3": {
@@ -22,8 +19,8 @@
             ]
         }
     },
-
-    "license": "MIT"
+    license: "MIT",
+    homepage: "aaa"
 }
 
 
