@@ -3,26 +3,38 @@
     <component name="JsonSchemaMappingsProjectConfiguration">
         <state>
             <map>
-                <entry key="Legion">
+                <entry key="Legion Package">
                     <value>
                         <SchemaInfo>
                             <option name="generatedName" value="New Schema"/>
-                            <option name="name" value="Legion"/>
+                            <option name="name" value="Legion Package"/>
                             <option name="relativePathToSchema" value=".config/.legion/legion.schema.json"/>
                             <option name="schemaVersion" value="JSON Schema version 7"/>
                             <option name="patterns">
                                 <list>
                                     <Item>
+                                        <option name="pattern" value="true"/>
                                         <option name="path" value="legion.json"/>
+                                        <option name="mappingKind" value="Pattern"/>
                                     </Item>
+                                </list>
+                            </option>
+                        </SchemaInfo>
+                    </value>
+                </entry>
+                <entry key="Legion Workspace">
+                    <value>
+                        <SchemaInfo>
+                            <option name="generatedName" value="New Schema"/>
+                            <option name="name" value="Legion Workspace"/>
+                            <option name="relativePathToSchema" value=".config/.legion/legions.schema.json"/>
+                            <option name="schemaVersion" value="JSON Schema version 7"/>
+                            <option name="patterns">
+                                <list>
                                     <Item>
+                                        <option name="pattern" value="true"/>
                                         <option name="path" value="legions.json"/>
-                                    </Item>
-                                    <Item>
-                                        <option name="path" value="packages/example-core/legion.json"/>
-                                    </Item>
-                                    <Item>
-                                        <option name="path" value="packages/example-run/legion.json"/>
+                                        <option name="mappingKind" value="Pattern"/>
                                     </Item>
                                 </list>
                             </option>

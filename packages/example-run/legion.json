@@ -2,8 +2,12 @@
     name: "valkyrie-template",
     version: "workspace",
     author: "workspace",
-    "dependency": {
-        "@org.name/lib1": "2024.1.2.3",
+    categories: [
+        "compiler"
+    ],
+    license: "workspace",
+    dependency: {
+        "@org.name/lib1": "2014.1.2.3",
         "@org.name/lib2": "workspace",
         "@org.name/lib3": {
             path: "../project",
@@ -11,9 +15,9 @@
             feature: "gate"
         },
         "@org.name/lib4": {
-            path: "../project",
-            "git": "git://url",
-            "version": "2024.1.*",
+            version: "*",
+            git: "git://url",
+            path: "wrong",
             feature: [
                 "gate1",
                 "gate2"
@@ -21,10 +25,14 @@
         }
     },
     "dependency-debug": {
-
     },
-    license: "GPL-3.0",
-    homepage: "aaa"
+    "dependency-build": {
+    },
+    features: {
+        serde: [
+            "a"
+        ]
+    }
 }
 
 

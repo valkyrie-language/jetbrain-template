@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "LegionPackageSetting",
+    "title": "LegionWorkspaceSetting",
     "type": "object",
     "required": [
         "license",
@@ -123,7 +123,7 @@
             "description": "The license used by the current project",
             "allOf": [
                 {
-                    "$ref": "#/definitions/LegionPackageLicense"
+                    "$ref": "#/definitions/LegionWorkspaceLicense"
                 }
             ]
         },
@@ -300,12 +300,8 @@
                 }
             ]
         },
-        "LegionPackageLicense": {
+        "LegionWorkspaceLicense": {
             "anyOf": [
-                {
-                    "description": "inherit from workspace",
-                    "type": "null"
-                },
                 {
                     "$ref": "#/definitions/LicenseType"
                 },
