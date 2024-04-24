@@ -20,6 +20,9 @@
             ]
         }
     },
+    "dependency-debug": {
+
+    },
     license: "GPL-3.0",
     homepage: "aaa"
 }
