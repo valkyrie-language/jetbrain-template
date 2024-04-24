@@ -1,7 +1,7 @@
 {
     name: "valkyrie-template",
     version: "workspace",
-    author: "name <email>",
+    author: "workspace",
     "dependency": {
         "@org.name/lib1": "2024.1.2.3",
         "@org.name/lib2": "workspace",
@@ -11,6 +11,7 @@
             feature: "gate"
         },
         "@org.name/lib4": {
+            path: "../project",
             "git": "git://url",
             "version": "2024.1.*",
             feature: [
@@ -19,7 +20,7 @@
             ]
         }
     },
-    license: "MIT",
+    license: "GPL-3.0",
     homepage: "aaa"
 }
 
