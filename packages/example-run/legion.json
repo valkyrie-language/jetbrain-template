@@ -1,0 +1,29 @@
+{
+    name: "valkyrie-template",
+    /// workspace or a.b.c.d
+    version: "workspace",
+    // string or list
+    author: "name <email>",
+    "dependency": {
+        // workspace or a or a.* or a.b or a.b.* or ...
+        "@org.name/lib1": "2024.1.2.3",
+        "@org.name/lib2": "workspace",
+        "@org.name/lib3": {
+            path: "../project",
+            version: "2024.1.*",
+            feature: "gate"
+        },
+        "@org.name/lib4": {
+            "git": "git://url",
+            "version": "2024.1.*",
+            feature: [
+                "gate1",
+                "gate2"
+            ]
+        }
+    },
+
+    "license": "MIT"
+}
+
+

@@ -1,0 +1,12 @@
+{
+    "name": "valkyrie-template",
+    "version": "0.0.0.0",
+    publish: 2,
+    "dependency": {
+        "@org.name/project": "2012.1.0"
+    },
+    "dependency-development": {
+    },
+    "dependency-build": {
+    },
+}

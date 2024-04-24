@@ -4,14 +4,103 @@
     "type": "object",
     "properties": {
         "name": {
-            "type": "string"
+            "type": "string",
+            "title": "name of the package",
+            "minLength": 1,
+            "pattern": "[0-9a-zA-Z_-]+"
+        },
+        "version": {
+            "type": "string",
+            "pattern": "^workspace$|^\\d+\\.\\d+\\.\\d+\\.\\d+$",
+            "title": "workspace | a.b.c.d",
+            "description": "Inherit from workspace or use four-digit version number",
+            "default": "0.0.0.0"
+        },
+        "publish": {
+            "type": "boolean",
+            "default": false
+        },
+        "description ": {
+            "type": "string",
+            "title": "description "
+        },
+        "keywords": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "Keywords"
+                ]
+            },
+            "minItems": 0,
+            "maxItems": 9,
+            "uniqueItems": true
+        },
+        "categories": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "category"
+                ],
+                "enumDesc": "category",
+                "description": "https://crates.io/category_slugs"
+            },
+            "minItems": 0,
+            "maxItems": 5,
+            "uniqueItems": true
+        },
+        "authors": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "title": "The name of authors"
+        },
+        "homepage": {
+            "type": "string",
+            "format": "uri",
+            "default": "https://github.com/"
+        },
+        "repository": {
+            "type": "string",
+            "format": "uri",
+            "default": "https://github.com/"
+        },
+        "document": {
+            "type": "string",
+            "format": "uri",
+            "default": "https://docs.rs/"
+        },
+        "license": {
+            "type": "string",
+            "enum": [
+                "GPL",
+                "MIT"
+            ],
+            "enumDesc": "one of ",
+            "default": "MIT"
+        },
+        "include": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "exclude": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "works after include"
         },
         "dependency": {
             "type": "object",
             "additionalProperties": {
                 "oneOf": [
                     {
-                        "type": "string"
+                        "type": "string",
+                        "pattern": "^workspace$|^\\d+\\.\\*$|^\\d+\\.\\d+\\.\\*$|^\\d+\\.\\d+\\.\\d+\\.\\*$"
                     },
                     {
                         "type": "object",
@@ -45,19 +134,27 @@
                         ]
                     }
                 ]
-            }
+            },
+            "properties": {}
         },
         "dependency-development": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": true,
+            "properties": {}
         },
         "dependency-build": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": true,
+            "properties": {}
+        },
+        "features": {
+            "type": "object",
+            "properties": {}
         }
     },
     "required": [
         "name",
-        "dependency"
+        "version",
+        "license"
     ]
 }
