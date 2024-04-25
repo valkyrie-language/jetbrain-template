@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="VALKYRIE_MODULE_TYPE" version="4">
+  <component name="FacetManager">
+    <facet type="VALKYRIE_FACET_TYPE" name="Valkyrie Framework">
+      <configuration />
+    </facet>
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$/packages/example-run">
