@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="VALKYRIE_MODULE_TYPE" version="4">
+  <component name="FacetManager">
+    <facet type="VALKYRIE_FACET_TYPE" name="Iris Framework">
+      <configuration />
+    </facet>
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$/packages/example-core">
@@ -8,7 +13,7 @@
       <sourceFolder url="file://$MODULE_DIR$/packages/example-core/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/packages/example-core/library" isTestSource="false" generated="true" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Saber (nightly)" jdkType="ValkyrieSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

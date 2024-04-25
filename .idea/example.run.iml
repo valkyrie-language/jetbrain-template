@@ -7,7 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/packages/example-run/library" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/packages/example-run/source" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Saber (nightly)" jdkType="ValkyrieSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

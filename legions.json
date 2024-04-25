@@ -1,13 +1,22 @@
 {
-    "name": "valkyrie-template",
-    "version": "0.0.0.0",
-    publish: 2,
-    "dependency": {
-        "@org.name/project": "2012.1.0"
+    name: "valkyrie-workspace-template",
+    version: "0.0.0.0",
+    publish: false,
+    dependency: {
+        "@valkyrie.std/core": "2012.1.0",
+        "@org.project/package": "2012.1.0"
     },
     "dependency-development": {
     },
     "dependency-build": {
     },
-    "license": "MIT"
+    "license": "MIT",
+    // Extra project search direction
+    include: [
+        "packages/",
+        "projects/"
+    ],
+    exclude: [
+        "package/test/"
+    ]
 }

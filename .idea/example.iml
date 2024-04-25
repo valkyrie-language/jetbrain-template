@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/targets" />
     </content>
+    <orderEntry type="jdk" jdkName="Saber (nightly)" jdkType="ValkyrieSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
