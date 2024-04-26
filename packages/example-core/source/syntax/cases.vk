@@ -1,0 +1,55 @@
+match literal {
+    case null:
+    case nil:
+    case true:
+    case false:
+    case none:        \\ variable = none
+    case None:        \\ variant  = Option::None
+    case Option⸬None: \\ variant  = Option::None
+    case let None:    \\ variable = None
+    case 0:
+    case 1:
+    case 2:
+    case "":
+    case '':
+}
+
+match tuple {
+    case a:
+    case (a):
+    case (a, ):
+    case (mut a, ref b):
+    case Tuple(a, b):
+    case Tuple((a, b), c):
+    case Tuple(Some(a), ⁜Unite⸬Variant):
+}
+
+match array {
+    case a:
+    case [none]:
+    case [Unite⸬Variant]:
+    case [a, ]:
+    case [[a], b]:
+    case [[a], [b]]:
+    case [[a, b], c]:
+    case [[[a], b], c]:
+}
+
+
+match `object` {
+    case a:
+    case {a}:
+    case {a, }:
+    case {a, b}:
+    case Object {a, b}:
+    case Object {a = {a, b}, c}:
+    case Object {a = Some(b), b}:
+}
+
+
+match pattern {
+    case a = b:
+    case a = Some(b):
+    case a = Object {a}:
+    case a = Object {a = b}:
+}

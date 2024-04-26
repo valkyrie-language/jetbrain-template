@@ -1,39 +1,59 @@
-a is nil;
-a is null;
-a is None;
-a is Some(_);
-a is Some(1);
+let value = 0;
 
-a is ture;
-a is "";
-a is 1cm;
-a is Integer;
-a is ();
-a is (1, 2);
-a is (1, "1");
-a is (1, Some("1"));
-a is List<String>;
-
-a is Some(List<String>)
-
-⍝ a is Object {key: _}
-
-
-⍝ let List<String> = 2
-
-
-if a is Object {} {
-then
+class Object {
+    mutable: bool
 }
-⍝ if (a is Object {key: _}) {
-⍝     then
-⍝ }
+unite Unite {
+    Variant,
+}
+
+value is nil;
+value is null;
+value is ture;
+value is false;
+value is (true, false);
+
+value is 1;
+value is 1cm;
+value is Integer;
+value is AnyInteger;
+value is Any;
+
+value is "";
+value is '';
+value is ['''some''', """text"""];
+
+
+let value: Option<u32> = Some(1);
+value is Some(1);
+value is Some(u32);
+value is Some(_);
+value is None;
+value is Option<u32>;
+
+
+value is ();
+value is (1);
+value is (1, )
+value is (1, 2, 3);
+value is (1, Some("1"));
+value is List⟨string⟩;
+value is Iterator⟨u32⟩
+value is Some(List⟨string⟩)
+
+
+let value = new Object {
+    mutable = 1
+};
+if a is Object {
+
+}
 if (a is {mutable: bool}) {
 
 }
-if (a is Class {mutable: bool}) {
+if (a is Object {mutable: bool}) {
 
 }
-if (a is Unite::Variant {mutable: bool}) {
+if (a is Unite⸬Variant {mutable: bool}) {
 
 }

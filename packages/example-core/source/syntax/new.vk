@@ -1,0 +1,55 @@
+new {}
+new {}
+new T {}
+new T() {}
+new() {}
+new List⟨T⟩ {}
+new List⟨T⟩(cap) {
+
+}
+
+
+class List {};
+class String {};
+
+a as Integer;
+a as List⟨T⟩;
+
+
+
+
+
+
+match a {
+    case List<String>:
+        then
+}
+
+for a in b {
+
+}
+
+
+
+⍝
+⍝ is Integer
+⍝ is (Integer)
+⍝ is Some(Integer)
+⍝ is Object { a: Integer, .. }
+⍝
+
+
+
+
+
+
+
+
+
+
+let Object {key} = a;
+
+
+
+
+⍝ date is { Month: 10, Day: 7, DayOfWeek: DayOfWeek::Friday }
