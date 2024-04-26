@@ -2,5 +2,21 @@
     "name": "1",
     "version": "0.0.0.0",
     "dependency": {},
-    "license": "MIT"
+    script: {
+        // legion run = legion run --script main
+        // legion run name = legion run --script name
+        "run0": "legion run",
+        "run1": "legion run --script app",
+        "run2": "legion run --test main",
+        "run3": "legion run --benchmark main",
+        "run4": "legion run --example main",
+        // vpp dev
+        "d": "legion build --debug",
+        // vpp r
+        "r": "legion publish --auto-patch",
+        // vpp rr
+        "rr": "legion publish --auto-major",
+    },
+    "license": "MIT",
 }
+
