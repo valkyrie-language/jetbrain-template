@@ -17,6 +17,6 @@
         // vpp rr
         "rr": "legion publish --auto-major",
     },
-    "license": "MIT",
+    license: "workspace"
 }
 

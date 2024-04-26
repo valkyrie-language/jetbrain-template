@@ -5,7 +5,7 @@
     categories: [
         "compiler"
     ],
-    license: "workspace",
+
     dependency: {
         "@org.name/lib1": "2014.1.2.3",
         "@org.name/lib2": "workspace",
@@ -32,7 +32,8 @@
         serde: [
             "a"
         ]
-    }
+    },
+    license: "workspace"
 }
 
 
