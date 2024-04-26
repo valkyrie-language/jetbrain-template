@@ -1,0 +1,66 @@
+⸿C
+
+⁜package⸬a;
+⁜module⸬a;
+⁜dependency⸬a;
+
+&a
+⁋a
+⍝ ⁙a
+
+
+⍝ ※a
+
+1 == 1;
+1 != 1;
+1 >  1;
+1 <= 1;
+1 >= 1;
+1 <  1;
+1 >= 1;
+1 <= 1;
+
+
+
+⁋⁋⁋x
+
+
+
+¶x + ¶y
+
+if ¬x {
+
+}
+
+⍝ value¡
+
+match value {
+    case Some(s): return s
+    case None():  None
+}
+
+value!
+
+⍝ value.unwrap_unchecked
+
+⍝ a!?.b()
+
+
+⍝ 20?
+⍝
+⍝ 20¿.b()
+
+⍝ ※
+
+⍝ ¿?
+
+
+
+※outer
+while a {
+    break ※outer
+}
+
+A as List⟨String⟩
+.count()
+
