@@ -11,5 +11,18 @@ if [] {}
 if [1:2] {}
 if [1:2:3] {}
 
-if a() {}
-if x.a() {}
+if constant {}
+if function() {}
+if @macro {}
+if @macro() {}
+if x.field {}
+if x.method() {}
+
+
+scope {
+    if expression is not Integer {}
+    if expression is not Some(Integer) {}
+    if (expression is not Object {a: Integer}) {}
+}
+
+

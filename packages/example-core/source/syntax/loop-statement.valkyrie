@@ -1,0 +1,149 @@
+⍝ loop while
+loop {
+    if x > 0 {
+        x += 1
+    }
+    else {
+        break
+    }
+}
+
+⍝ loop while
+loop while x > 0 {
+    print("loop while")
+}
+loop {
+    if x > 0 {
+        print("loop while")
+    }
+    else {
+        break
+    }
+}
+⍝ loop while let
+loop while Some(x) = expression if x > 0 {
+    x.method()
+};
+loop {
+    try let Some(x) = X if x > 0 {
+        x.method()
+    }
+    else {
+        break
+    }
+};
+loop {
+    match expression {
+        case Some(x) if x > 0:
+            x.method()
+            break
+        else:
+
+    }
+}
+⍝ loop until
+loop until x > 0 {
+    print("stop")
+}
+loop {
+    if x > 0 {
+        print("stop")
+        break
+    }
+}
+⍝ loop until not
+loop until Some(Integer) = expression {
+    print("loop")
+    continue
+};
+loop {
+    match expression {
+        type Some(Integer):
+            print("loop")
+            break
+        else:
+    }
+}
+loop {
+    match expression {
+        case Some(x) if x > 0:
+            x.method()
+        else:
+            break
+    }
+}
+⍝ loop match case
+loop x in expression {
+
+}
+loop mut x, ref y in expression {
+    x.method(y)
+}
+loop (mut x, ref y) in expression {
+    x.method(y)
+}
+loop [x] in expression {
+
+}
+loop Some(x) in expression if x > 0 {
+
+}
+loop Object {x ← Some(y)} in expression if y is Integer {
+
+}
+
+loop ref a ← Object {val x ← Some(var y)} in expression if x is Some(Integer) {
+    print(a)
+}
+loop {
+    match expression {
+        case ref a ← Object {val x ← Some(var y)}:
+
+        else: continue
+    }
+}
+match x {
+    case Some() if a:
+        if x is Some(Integer) {
+            print(a)
+        }
+}
+
+
+
+⍝ loop match case
+loop Some(x) in expression if x > 0 {
+    x.method()
+};
+loop X in expression {
+    try let Some(x) = X if x > 0 {
+        x.method()
+    }
+};
+loop {
+    match expression {
+        case Some(x) if x > 0:
+            x.method()
+        else:
+            continue
+    }
+}
+\\ https://github.com/rust-lang/rfcs/issues/2219
+loop ※outer
+#unroll
+#unroll(8)
+while true {
+
+}
+.loop x {}
+.loop x, {}
+.loop x, y {}
+.loop ref x, mut y {}
+.loop (x, y) {}
+.loop Some(x) {}
+.loop x {
+    match x {
+        case Object {x}: x
+        else: continue
+    }
+}

@@ -64,3 +64,23 @@ while a {
 A as List⟨String⟩
 .count()
 
+scope {
+    try let a = expression {}
+    try let [] = expression {}
+    try let () = expression {}
+    try let (a) = expression {}
+    try let Some(a) = expression {}
+    try let Object {a} = expression {}
+    try let Object {a, a <- Some(b)} = expression {}
+}
+
+
+try let Some(x) = X {
+if x > 0 {
+x.method()
+}
+}
+
+let Some(x) = x else {
+@panic
+}
