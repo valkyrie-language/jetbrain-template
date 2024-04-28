@@ -1,8 +1,7 @@
 match literal {
     case null:
     case nil:
-    case true:
-    case false:
+    case true | false:
     case none:        \\ variable = none
     case None:        \\ variant  = Option::None
     case Option⸬None: \\ variant  = Option::None
@@ -15,9 +14,8 @@ match literal {
 }
 
 match tuple {
-    case a:
-    case (a):
-    case (a, ):
+    case ():
+    case (a) | (a, ) if a > 0:
     case (mut a, ref b):
     case Tuple(a, b):
     case Tuple((a, b), c):
@@ -25,10 +23,11 @@ match tuple {
 }
 
 match array {
-    case a:
+    case []:
+    case [a, ]:
+    case [mut a, b]:
     case [none]:
     case [Unite⸬Variant]:
-    case [a, ]:
     case [[a], b]:
     case [[a], [b]]:
     case [[a, b], c]:
@@ -42,14 +41,6 @@ match `object` {
     case {a, }:
     case {a, b}:
     case Object {a, b}:
-    case Object {a = {a, b}, c}:
-    case Object {a = Some(b), b}:
-}
-
-
-match pattern {
-    case a = b:
-    case a = Some(b):
-    case a = Object {a}:
-    case a = Object {a = b}:
+    case Object {a ← {a, b}, c}:
+    case Object {a ← Some(b), b}:
 }

@@ -1,0 +1,58 @@
+match literal {
+    type null | true
+       :
+    type nil:
+    type true | false:
+
+    type false:
+    type none:        \\ variable = none
+    type None:        \\ variant  = Option::None
+    type Option⸬None: \\ variant  = Option::None
+    type None:    \\ variable = None
+    type 0:
+    type 1:
+    type 2:
+    type "":
+    type '':
+}
+⍝
+⍝ match tuple {
+⍝ type ():
+⍝ type (a):
+⍝     type (a, ):
+⍝     type (mut a, ref b):
+⍝     type Tuple(a, b):
+⍝     type Tuple((a, b), c):
+⍝     type Tuple(Some(a), ⁜Unite⸬Variant):
+⍝ }
+⍝
+⍝ match array {
+⍝     type []:
+⍝     type [a, ]:
+⍝     type [mut a, b]:
+⍝     type [none]:
+⍝     type [Unite⸬Variant]:
+⍝     type [[a], b]:
+⍝     type [[a], [b]]:
+⍝     type [[a, b], c]:
+⍝     type [[[a], b], c]:
+⍝ }
+⍝
+⍝
+⍝ match `object` {
+⍝     type a:
+⍝     type {a}:
+⍝     type {a, }:
+⍝     type {a, b}:
+⍝     type Object {a, b}:
+⍝     type Object {a ← {a, b}, c}:
+⍝     type Object {a ← Some(b), b}:
+⍝ }
+⍝
+⍝
+⍝ match pattern {
+⍝     type a ← b:
+⍝     type a ← Some(b):
+⍝     type a ← Object {a}:
+⍝     type a ← Object {a ← b}:
+⍝ }
