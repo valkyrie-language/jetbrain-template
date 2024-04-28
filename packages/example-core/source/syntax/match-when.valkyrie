@@ -1,0 +1,48 @@
+match mut x <- literal {
+    when null || nil:
+    when
+    || true
+    || false:
+        aaa
+        bbb
+        ccc
+    when a == 1  && c == 2:
+    when a == '' || b == "":
+}
+
+match tuple {
+    when ():
+    when (a):
+    when (a, ):
+    when Tuple(a, b):
+    when Tuple((a, b), c):
+    when Tuple(Some(a), ⁜Unite⸬Variant):
+}
+
+match array {
+    when []:
+    when [a, ]:
+    when [none]:
+    when [Unite⸬Variant]:
+    when [[a], b]:
+    when [[a], [b]]:
+    when [[a, b], c]:
+    when [[[a], b], c]:
+}
+
+match x <- `object` {
+    when x == call():
+    when x == x.call():
+    when x == new B {}:
+    ⍝ when {a: Type, }:
+    ⍝ when {a: Type, b: Type}:
+    ⍝ when Object {a: Type, b: Type}:
+    ⍝ when Object {a: {a: Type, b: Type}, c: Type}:
+    ⍝ when Object {a: Some(_), b: Type}:
+}
+scope {
+    ();
+    (a);
+    (a, );
+}
+

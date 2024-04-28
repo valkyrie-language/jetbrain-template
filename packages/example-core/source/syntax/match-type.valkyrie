@@ -1,58 +1,49 @@
-match literal {
-    type null | true
-       :
-    type nil:
-    type true | false:
-
+match mut x <- literal {
+    type null | nil:
+    type
+    | true
+    | false:
+        aaa;
+        bbb;
+        ccc;
     type false:
     type none:        \\ variable = none
     type None:        \\ variant  = Option::None
     type Option⸬None: \\ variant  = Option::None
-    type None:    \\ variable = None
     type 0:
     type 1:
     type 2:
     type "":
     type '':
 }
-⍝
-⍝ match tuple {
-⍝ type ():
-⍝ type (a):
-⍝     type (a, ):
-⍝     type (mut a, ref b):
-⍝     type Tuple(a, b):
-⍝     type Tuple((a, b), c):
-⍝     type Tuple(Some(a), ⁜Unite⸬Variant):
-⍝ }
-⍝
-⍝ match array {
-⍝     type []:
-⍝     type [a, ]:
-⍝     type [mut a, b]:
-⍝     type [none]:
-⍝     type [Unite⸬Variant]:
-⍝     type [[a], b]:
-⍝     type [[a], [b]]:
-⍝     type [[a, b], c]:
-⍝     type [[[a], b], c]:
-⍝ }
-⍝
-⍝
-⍝ match `object` {
-⍝     type a:
-⍝     type {a}:
-⍝     type {a, }:
-⍝     type {a, b}:
-⍝     type Object {a, b}:
-⍝     type Object {a ← {a, b}, c}:
-⍝     type Object {a ← Some(b), b}:
-⍝ }
-⍝
-⍝
-⍝ match pattern {
-⍝     type a ← b:
-⍝     type a ← Some(b):
-⍝     type a ← Object {a}:
-⍝     type a ← Object {a ← b}:
-⍝ }
+
+match tuple {
+    type ():
+    type (Type):
+    type (Type, ):
+    type Tuple(Type, Type):
+    type Tuple((Type, Type), Type):
+    type Tuple(Some(Type), ⁜Unite⸬Variant):
+}
+
+match array {
+    type []:
+    type [Type]:
+    type [Type, ]:
+    type [Unite⸬Variant]:
+    type [[Type], Type]:
+    type [[Type], [Type]]:
+    type [[Type, Type], Type]:
+    type [[[Type], Type], Type]:
+}
+
+match `object` {
+    type Type:
+    type {a: Type}:
+    type {a: Type, }:
+    type {a: Type, b: Type}:
+    type Object {a: Type, b: Type}:
+    type Object {a: {a: _, b: _}, c: Type}:
+    type Object {a: Some(_), b: Type}:
+}
+
