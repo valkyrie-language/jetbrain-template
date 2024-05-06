@@ -1,5 +1,3 @@
-⸿C
-
 ⁜package⸬a;
 ⁜module⸬a;
 ⁜dependency⸬a;
@@ -20,9 +18,16 @@
 1 >= 1;
 1 <= 1;
 
+⁋str;
+¶str;
+❡str;
 
+*&str
 
-⁋⁋⁋x
+2 × 3 / 2
+
+⸿action.main.name;
+❡action.main.name;
 
 
 
@@ -54,33 +59,24 @@ value!
 
 ⍝ ¿?
 
+let 𖧄 = 0;
 
+let 𖢣 = 1;
 
-※outer
-while a {
+𖢐 𖢑 𖢒 𖢓 𖢔 𖢕  𖢖 𖢗 𖢘 𖢙 𖢚 𖢛  𖢜 𖢝 𖢞 𖢟 𖢠 𖢡  𖢢 𖢣 𖢤 𖢥 𖢦 𖢧  𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳  𖢴 𖢵 𖢶 𖢷 𖢸 𖢹
+⍝ ☢ ☣
+𖤝
+
+a × b
+loop ※outer while a {
     break ※outer
 }
 
-A as List⟨String⟩
+A
+is List⟨String⟩
+as List⟨String⟩
 .count()
 
-scope {
-    try let a = expression {}
-    try let [] = expression {}
-    try let () = expression {}
-    try let (a) = expression {}
-    try let Some(a) = expression {}
-    try let Object {a} = expression {}
-    try let Object {a, a <- Some(b)} = expression {}
-}
+let Some(a) = b else {
 
-
-try let Some(x) = X {
-if x > 0 {
-x.method()
-}
-}
-
-let Some(x) = x else {
-@panic
 }

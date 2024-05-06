@@ -1,0 +1,44 @@
+class K {}
+class K⟨⟩(){}
+
+class K⟨⟩ {}
+class K⟨T⟩ {}
+class K⟨T: Bound, V = Integer⟩ {}
+class K⟨readonly T: Bound + Interface = List⟨Integer⟩⟩ {}
+
+class K() {}
+class K(Super) {}
+class A(parent: Super) {}
+class A(father: List⟨Integer⟩, mother: List⟨String⟩) {}
+
+class TestField {
+    field,
+    readonly field,
+    field: Type,
+    field = value,
+    #macro
+    readonly field: Type = Value,
+}
+
+class TestMethod {
+    abstract method(),
+    method() {}
+    method(a, b: Type, c = default, d: Type = default) {
+
+    }
+    method(..) {}
+    method(...) {}
+    method(..args: List, ...kws: Object) {}
+    method(positional, <, free, >, kw_only) {}
+}
+
+
+class TestDomain {
+    private modifiers {
+        readonly modifiers {
+            field_a
+        }
+    }
+    public mutable field_b,
+}
+

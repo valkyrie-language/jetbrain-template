@@ -96,21 +96,22 @@ loop ref a ← Object {val x ← Some(var y)} in expression if x is Some(Integer
     print(a)
 }
 loop {
-    match expression {
-        case ref a ← Object {val x ← Some(var y)}:
-
-        else: continue
+    match ref a ←   expression {
+        case Object {val x ← Some(var y)}:
+            if x is Some(Integer) {
+                print(a)
+            }
+        case _: continue
     }
 }
-match x {
-    case Some() if a:
+loop {
+    let ref a = expression;
+    try let Object {val x} = a {
         if x is Some(Integer) {
             print(a)
         }
+    }
 }
-
-
-
 ⍝ loop match case
 loop Some(x) in expression if x > 0 {
     x.method()
@@ -141,9 +142,12 @@ while true {
 .loop ref x, mut y {}
 .loop (x, y) {}
 .loop Some(x) {}
+.loop (Object {x}) {}
 .loop x {
     match x {
-        case Object {x}: x
+        case Object {x}: yield with x
         else: continue
     }
 }
+.loop ref a ← Some(x) {}
+.loop (ref a ← Object {x}) {}

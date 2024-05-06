@@ -42,5 +42,5 @@ match `object` {
     case {a, b}:
     case Object {a, b}:
     case Object {a ← {a, b}, c}:
-    case Object {a ← Some(b), b}:
+    case Object {a: Option⟨Integer⟩ = Some(b), c: Integer}:
 }
