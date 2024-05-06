@@ -2,12 +2,12 @@
 <project version="4">
     <component name="ProjectModuleManager">
         <modules>
-            <module fileurl="file://$PROJECT_DIR$/.idea/valkyrie.iml"
-                    filepath="file://$PROJECT_DIR$/.idea/valkyrie.iml"/>
-            <module fileurl="file://$PROJECT_DIR$/.idea/valkyrie.core.iml"
-                    filepath="$PROJECT_DIR$/.idea/valkyrie.core.iml"/>
-            <module fileurl="file://$PROJECT_DIR$/.idea/valkyrie.run.iml"
-                    filepath="$PROJECT_DIR$/.idea/valkyrie.run.iml"/>
+            <module fileurl="file://$PROJECT_DIR$/.idea/modules/valkyrie.iml"
+                    filepath="$PROJECT_DIR$/.idea/modules/valkyrie.iml"/>
+            <module fileurl="file://$PROJECT_DIR$/.idea/modules/valkyrie.core.iml"
+                    filepath="$PROJECT_DIR$/.idea/modules/valkyrie.core.iml"/>
+            <module fileurl="file://$PROJECT_DIR$/.idea/modules/valkyrie.run.iml"
+                    filepath="$PROJECT_DIR$/.idea/modules/valkyrie.run.iml"/>
         </modules>
     </component>
 </project>

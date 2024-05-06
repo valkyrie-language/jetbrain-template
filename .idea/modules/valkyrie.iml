@@ -2,10 +2,9 @@
 <module type="VALKYRIE_MODULE_TYPE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/targets" />
+    <content url="file://$MODULE_DIR$/../..">
+      <excludeFolder url="file://$MODULE_DIR$/../../targets" />
     </content>
-    <orderEntry type="jdk" jdkName="Saber (nightly)" jdkType="ValkyrieSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

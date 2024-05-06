@@ -1,0 +1,95 @@
+⍝ let pattern
+let x = expression();
+let x, y = expression();
+let ref x, mut y = expression();
+let (ref x, mut y) = expression();
+let Some(x) = expression();
+let [x, y, z] = expression();
+let Object {x} = expression();
+⍝ let pattern typed
+let x: bool = expression();
+let x, y: (bool, bool) = expression();
+let ref x, mut y: (bool, bool) = expression();
+let (ref x, mut y): (bool, bool) = expression();
+let Some(x): Option⟨bool⟩ = expression();
+let [x, y, z]: List⟨bool⟩ = expression();
+let Object {x}: Object = expression();
+⍝ let pattern binding
+let a ← Some(x) = expression();
+let ref a ← [x, y, z] = expression();
+let mut a ← Object {x, y ← Some(z)} = expression();
+⍝ let pattern typed binding
+let a ← Some(x): Option⟨bool⟩ = expression();
+let ref a ← [x, y, z]: List⟨bool⟩ = expression();
+let mut a ← Object {x}: Object = expression();
+
+
+let Some(a): Option⟨bool⟩ ?= expression()
+if a is null {
+    return "early"
+}
+@null_return(a, b != 0)
+
+if a is null {
+    return
+}
+
+a ?: a;
+
+
+class Fields {
+    ⍝ direct
+    get set
+    _field1: Integer
+    ⍝ auto
+    #get(public) {_field2}
+    #set(private) {_field2 = value}
+    _field2: Integer = 0;
+    ⍝ custom name
+    _field3: Integer = default
+    public get field3(self) {
+        return self._field3
+    }
+    \\
+    public set field3(mut self, value: Integer) {
+        self._field3 = value
+    }
+}
+
+
+let Some(a): Option⟨bool⟩ = expression() else {
+    return "early"
+};
+
+try let a ← Some(b) = expression() if b is Integer {
+    print(a)
+}
+try not Some(Integer) = expression() {
+    print("require Integer")
+}
+
+
+scope {
+    try let a = expression {}
+    try let [] = expression {}
+    try let () = expression {}
+    try let (a) = expression {}
+    try let Some(a) = expression {}
+    try let Object {a} = expression {}
+    try let Object {a, b: Option⟨bool⟩ = Some(b)} = expression {}
+}
+
+
+try let Some(x) = X {
+    if x > 0 {
+        x.method()
+    }
+}
+else {
+
+}
+
+
+let Some(x) = x else {
+    @panic
+}

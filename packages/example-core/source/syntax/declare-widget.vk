@@ -1,0 +1,7 @@
+
+widget W {}
+#widget class W {}
+
+#widget micro Class() -> Unit {
+    let (a, b) = use_state(0)
+}

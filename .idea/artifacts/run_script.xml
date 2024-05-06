@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="wasm" name="run@script">
+    <output-path>$PROJECT_DIR$/targets/legion</output-path>
+    <root id="root" />
+  </artifact>
+</component>

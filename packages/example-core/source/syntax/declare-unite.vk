@@ -1,0 +1,38 @@
+unite U {}
+
+unite U {
+    A,
+    B,
+}
+
+unite U {
+    A {
+        private field: Type = default,
+    }
+    B {
+        public constructor() {
+            U⸬B
+        }
+    }
+    dispatch() {}
+}
+
+
+abstract class U {
+    virtual dispatch(self)
+}
+final class `U.A`(`unite`: U) {
+    override dispatch(self) {}
+}
+final class `U.B`(`unite`: U) {
+    override dispatch(self) {}
+}
+
+anonymous unite U {
+    inline A {inner: A}
+    inline B {inner: B}
+}
+
+
+typus U = A | B;
+
