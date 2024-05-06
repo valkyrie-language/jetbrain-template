@@ -1,0 +1,91 @@
+
+
+
+
+
+#mutex
+eager singleton InterfaceManager {
+    nice(self) {
+
+    }
+}
+
+#thread_local
+lazy singleton InterfaceManager {
+    initialize() {}
+    unitialize() {}
+}
+
+static singleton InterfaceManager {
+
+}
+singleton PlayerManager {
+    initialize() {
+    }
+    unitialize() {
+    }
+}
+
+
+InterfaceManager.nice()
+
+abstract class Interface {
+
+}
+widget Interface {
+    component {
+
+    }
+}
+
+widget Component {
+    component {
+
+    }
+
+}
+widget Component {
+    component {
+
+    }
+}
+
+
+#pool(max = 2)
+singleton ObjectPool {
+
+}
+
+#pool(exact = 2)
+singleton ObjectPool {
+    get_instance()
+}
+
+
+lazy singleton ObjectManager {
+    initialize() {
+    }
+    unitialize() {
+    }
+}
+⍝ static singleton can't uninitialize
+static singleton LoggerManager {
+    initialize() {
+        print("")
+    }
+}
+
+
+class List<T> {
+    static EMPTY: List<T> = new {}
+    constructor() {
+
+    }
+}
+
+
+
+let hashmap = json"{
+    a: 2
+}
+"

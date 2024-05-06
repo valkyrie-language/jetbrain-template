@@ -11,6 +11,11 @@ class K(Super) {}
 class A(parent: Super) {}
 class A(father: List⟨Integer⟩, mother: List⟨String⟩) {}
 
+
+
+
+
+
 class TestField {
     field,
     readonly field,

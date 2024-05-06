@@ -1,0 +1,7 @@
+#test
+micro ready() -> Unit {
+    print("Battle Control Online!")
+}
+
+
+

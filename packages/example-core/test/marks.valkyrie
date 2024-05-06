@@ -1,0 +1,85 @@
+trait A = B;
+trait A {
+    method(){}
+}
+class A {
+    field,
+    method(),
+    domain{},
+}
+
+
+enums A {
+    Enumeration
+}
+
+flags A {
+    config
+}
+
+union A {}
+
+unite A {
+    Enumeration,
+    Variant {},
+}
+
+micro f1() {}
+
+macro f2() {}
+
+
+⍝ class based component
+widget App {
+    property {
+
+    }
+    #context
+    a: A,
+    #provider
+    b: B
+
+    render() -> Widget {
+        Text {
+            "standard component"
+        }
+    }
+}
+#widget class App {
+
+}
+
+
+⍝ functional component
+#widget
+function App() -> Widget {
+    div {
+        text {
+            "so functional!"
+        }
+    }
+}
+
+
+singleton Interface {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

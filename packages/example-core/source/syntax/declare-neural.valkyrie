@@ -1,0 +1,92 @@
+neural LinearLayer {
+    forward() {
+
+    }
+}
+neural ReluLayer {
+    forward() {
+
+    }
+}
+neural SigmoidLayer {
+    forward() {
+
+    }
+}
+neural TanhLayer {
+    forward() {
+
+    }
+}
+neural ConvolutionLayer1D {
+    weight: NDArray,
+    bias: NDArray?,
+    padding: usize,
+    output_padding: usize,
+    stride: usize,
+    dilation: usize,
+    groups: usize,
+}
+neural ConvolutionLayer2D {
+    weight: NDArray,
+    bias: NDArray?,
+    padding: usize,
+    stride: usize,
+    dilation: usize,
+    groups: usize,
+}
+neural ConvolutionLayer2DTranspose {
+    weight: NDArray,
+    bias: NDArray?,
+    padding: usize,
+    stride: usize,
+    dilation: usize,
+    groups: usize,
+}
+
+
+⍝ function neural network
+micro relu() -> ReluLayer {
+
+}
+micro selu() -> SeluLayer {
+
+}
+micro tanh() -> TanhLayer {
+
+}
+micro conv2d() -> ConvolutionLayer2D {
+    new ConvolutionLayer2D {
+
+    }
+}
+micro conv2dt() -> ConvolutionLayer2DTranspose {
+    new ConvolutionLayer2DTranspose {
+
+    }
+}
+
+new conv2d() {
+    bias = a
+}
+
+neural GroupNorm {
+    weight: NDArray,
+    bias: NDArray,
+    epsilon: f64,
+    channels: usize,
+    groups: usize,
+}
+neural BatchNorm {
+    weight: NDArray,
+    bias: NDArray,
+    epsilon: f64,
+    remove_mean: bool,
+    momentum: f64,
+}
+
+micro batch_norm(epsilon: f64 = 1×*-6) -> BatchNorm {
+    new BatchNorm {
+        epsilon = epsilon
+    }
+}
