@@ -35,6 +35,38 @@ imply⟨T⟩ Vector⟨T⟩ {
     }
 }
 
+⍝ iterator like method
+imply⟨T⟩ Vector⟨T⟩ {
+    map<U>(self, f: T -> U): Vector<U> {
+        self.make_iterator().select(f).collect()
+    }
+    reduce<U>(move self, f: (previous: U, current: T) -> U): Vector<U> {
+        self.make_iterator().reduce(f).collect()
+    }
+    select(self, acceptor: T -> bool, capacity: usize = 0): Vector<T> {
+        self.make_iterator().select(acceptor).collect()
+    }
+    select_by(self, predicate: T -> bool, capacity: usize = 0): (accept: Vector<U>, reject: Vector<U>) {
+        let mut accept = Vector(capacity)
+        let mut reject = Vector(capacity)
+        loop item in self {
+            predicate(item).dispatch(accept, reject).push(item)
+        }
+        (accept, reject)
+    }
+    filter(self, rejector: T -> bool, capacity: usize = 0): Vector<T> {
+        self.make_iterator().filter(rejector).collect()
+    }
+    filter_by(self, predicate: T -> bool, capacity: usize = 0): (reject: Vector<U>, accept: Vector<U>) {
+        let mut accept = Vector(capacity)
+        let mut reject = Vector(capacity)
+        loop item in self {
+            predicate(item).dispatch(accept, reject).push(item)
+        }
+        (reject, accept)
+    }
+}
+
 ⍝? Scalable List Operator
 imply⟨T⟩ Vector⟨T⟩ {
     ⍝? The new allocated array size depends on current size.
@@ -52,7 +84,7 @@ imply⟨T⟩ Vector⟨T⟩ {
             ⍝ x_3 ⩽ 1.324717957244746
             ⍝ x_4 ⩽ 1.465571231876768 √
             ⍝ x_5 ⩽ 1.534157744914267
-            ⍝ x_n <  1.618033988749895
+            ⍝ x_n < 1.618033988749895
             self.expand_unchecked(size)
         }
         return size

@@ -1,0 +1,11 @@
+trait IntoIterator {
+    typus Item,
+    make_iterator(self)-> Iterator⟨Item=Item⟩,
+    into_iterator(move self)-> Iterator⟨Item=Item⟩,
+}
+
+
+
+trait Iterator {
+
+}
