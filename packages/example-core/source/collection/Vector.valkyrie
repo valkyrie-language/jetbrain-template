@@ -37,16 +37,22 @@ imply⟨T⟩ Vector⟨T⟩ {
 
 ⍝ iterator like method
 imply⟨T⟩ Vector⟨T⟩ {
-    map<U>(self, f: T -> U): Vector<U> {
+    map⟨U⟩(self, f: T -> U) -> Vector⟨U⟩ {
         self.make_iterator().select(f).collect()
     }
-    reduce<U>(move self, f: (previous: U, current: T) -> U): Vector<U> {
+    reduce⟨U⟩(move self, f: (previous: U, current: T) -> U) -> Vector⟨U⟩ {
         self.make_iterator().reduce(f).collect()
     }
-    select(self, acceptor: T -> bool, capacity: usize = 0): Vector<T> {
-        self.make_iterator().select(acceptor).collect()
+    select(self, acceptor: T -> bool, capacity: usize = 0) -> Vector⟨T⟩ {
+        let mut accept = Vector(capacity)
+        loop item in self {
+            if predicate(item) {
+                accept.push(item)
+            }
+        }
+        accept
     }
-    select_by(self, predicate: T -> bool, capacity: usize = 0): (accept: Vector<U>, reject: Vector<U>) {
+    select_by(self, predicate: T -> bool, capacity: usize = 0) -> (accept: Vector⟨U⟩, reject: Vector⟨U⟩) {
         let mut accept = Vector(capacity)
         let mut reject = Vector(capacity)
         loop item in self {
@@ -54,10 +60,16 @@ imply⟨T⟩ Vector⟨T⟩ {
         }
         (accept, reject)
     }
-    filter(self, rejector: T -> bool, capacity: usize = 0): Vector<T> {
-        self.make_iterator().filter(rejector).collect()
+    filter(self, rejector: T -> bool, capacity: usize = 0) -> Vector⟨T⟩ {
+        let mut reject = Vector(capacity)
+        loop item in self {
+            if!predicate(item) {
+                reject.push(item)
+            }
+        }
+        reject
     }
-    filter_by(self, predicate: T -> bool, capacity: usize = 0): (reject: Vector<U>, accept: Vector<U>) {
+    filter_by(self, predicate: T -> bool, capacity: usize = 0) -> (reject: Vector⟨U⟩, accept: Vector⟨U⟩) {
         let mut accept = Vector(capacity)
         let mut reject = Vector(capacity)
         loop item in self {
@@ -72,7 +84,7 @@ imply⟨T⟩ Vector⟨T⟩ {
     ⍝? The new allocated array size depends on current size.
     ⍝? The only reason to use `2` is that it generates the fewest instructions.
     constant GROW_RATE: usize = 2;
-    grow(mut self)-> usize {
+    grow(mut self) -> usize {
         ⍝ ## 原理
         ⍝ 设初始内存地址为 0 ~ 1, 则首次 grow 之后占用 1 ~ x, 第二次 grow 后占用 x ~ x^2...
         ⍝ 令 x^n <= 1 + x + x^2 + ... + x^(n-2)
@@ -115,7 +127,7 @@ trait AnyList {
     #predicate(scalable)
     resize(self),
     #predicate(scalable)
-    shrink(self, size: usize)-> bool {
+    shrink(self, size: usize) -> bool {
         if size >= self.capacity {
             return false
         }
@@ -124,7 +136,7 @@ trait AnyList {
     }
 
     #predicate(scalable)
-    expand(self, size: usize)-> bool {
+    expand(self, size: usize) -> bool {
         if size <= self.capacity {
             return false
         }
@@ -151,10 +163,10 @@ imply⟨T⟩ Vector⟨T⟩: AnyList {
         self.prepend(item.reverse())
     }
     #lint⸬inefficient_operation(recommend=VectorDeque⸬drop_head)
-    drop_head(mut self)-> T? {
+    drop_head(mut self) -> T ? {
 
     }
-    drop_head(mut self, size: usize)-> Iterator⟨Item=T⟩ {
+    drop_head(mut self, size: usize) -> Iterator⟨Item=T⟩ {
 
     }
     insert(mut self, index: usize, item: T) {
@@ -169,13 +181,13 @@ imply⟨T⟩ Vector⟨T⟩: AnyList {
 
     }
     #lint⸬recommend_alias(replace=Vector⸬pop)
-    drop_tail(mut self)-> T? {
+    drop_tail(mut self) -> T ? {
         self.drop_tail(1)
     }
     drop_tail(mut self, size: usize) -> Iterator⟨Item=T⟩ {
 
     }
-    remove(mut self, index: usize) -> T? {
+    remove(mut self, index: usize) -> T ? {
 
     }
     resize(mut self, size: usize) {
