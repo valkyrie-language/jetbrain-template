@@ -1,0 +1,91 @@
++a;
+-a;
+
+⍝ add
+a+0;
+a+=0;
+⍝ sub
+a-0;
+a-=0;
+⍝ mul
+a×0;
+a×=0;
+⍝ div
+a/1;
+a/=1;
+⍝ div ceiling
+a /^ b;
+⌈5/2.0⌉;
+⍝ div floor
+a /. b;
+⌊5/2.0⌋;
+⍝ div round ceiling
+a /^. b;
+⌈5/2.0⌋;
+⍝ div round floor
+a /.^ b;
+⌊5/2.0⌉;
+⍝ rem
+a%1;
+a%=1;
+⍝ power
+a^b^c;
+a^(b^c)
+⍝ map
+f/@(1,2,3);
+⍝
+a.unwrap_with()
+a ?? b;
+a.unwrap_else()
+a ?: b;
+⍝ sqrt
+√2
+⍝
+
+⍝
+
+⍝ surd
+a√b
+a√b√c
+a√(b√c)
+
+
+⍝ ref
+&a;
+⍝ deref
+*a;
+
+⍝ not
+!a;
+a!=1;
+
+\\ sign
++a;
+-a;
+
+\\ unbox, unpack, unpack all
+⍝ *var;
+⍝ **var;
+⍝ ⁑var;
+⍝ ***var;
+⍝ ⁂ var;
+⍝ a ** var;
+
+
+\\ inverse
+⅟a;
+
+\\ surd
+√2 + ∛3 + ∜5;
+√(2 + ∛(3 + ∜5));
+√∛∜x;
+
+\\ temperature
+20℃ + 30℉;
+
+\\ percentage
+2% + 3‰ + 5‱;
+(2% + (3‰ + 5))‱;
+x%‰‱;
+
+\\ tensor ᵀᴴᵀ

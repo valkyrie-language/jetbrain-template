@@ -1,0 +1,250 @@
+#localization(`namespace` = a⸬b⸬c)
+namespace a;
+
+
+⸿valkyrie.inlay.text.main
+
+
+
+⁜package⸬a;
+⁜module⸬a;
+⁜dependency⸬a;
+
+&a
+
+
+
+
+
+⍝ ※a
+
+1 == 1;
+1 != 1;
+1 >  1;
+1 <= 1;
+1 >= 1;
+1 <  1;
+1 >= 1;
+1 <= 1;
+
+⁋str;
+¶str;
+❡str;
+
+*&str
+
+2 × 3 / 2
+
+⸿action.main.name;
+❡action.main.name;
+
+
+
+¶x + ¶y
+
+if ¬x {
+
+}
+
+⍝ value¡
+
+match value {
+    case Some(s): return s
+    case None():  None
+}
+
+value!
+
+⍝ value.unwrap_unchecked
+
+⍝ a!?.b()
+
+
+⍝ 20?
+⍝
+⍝ 20¿.b()
+
+⍝ ※
+
+⍝ ¿?
+
+let 𖧄 = 0;
+
+let 𖢣 = 1;
+
+𖢐 𖢑 𖢒 𖢓 𖢔 𖢕  𖢖 𖢗 𖢘 𖢙 𖢚 𖢛  𖢜 𖢝 𖢞 𖢟 𖢠 𖢡  𖢢 𖢣 𖢤 𖢥 𖢦 𖢧  𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳  𖢴 𖢵 𖢶 𖢷 𖢸 𖢹
+⍝ ☢ ☣
+𖤝
+
+a × b
+loop ※outer while a {
+    break ※outer
+}
+
+A
+is List⟨String⟩
+as List⟨String⟩
+.count()
+
+let Some(a) = b else {
+
+}
+
+structure S {}
+value class S {}
+
+#`singleton`
+class Interface {
+
+}
+
+widget Component {
+    component {
+
+    }
+    render(self) -> Widget {
+    }
+}
+
+
+
+
+
+widget Component {
+    component {
+
+    }
+}
+widget Ap {
+    component {
+
+    }
+    render(self) -> Widget {
+    }
+}
+
+
+
+let hashmap = json"{
+    a: 2
+}
+"
+
+trait AnyList {
+    #predicate(mutable)
+    reverse(self)
+
+    reversed(self)
+}
+
+imply LinkedList: AnyList {
+    reverse(mut self) {}
+
+    reversed(self) {}
+}
+
+class A {
+    #get({_field})
+    #set({_field=value}, (private, ))
+    private _field: Any
+
+
+    private _name: Any
+    get name(self) -> Any {
+        return _name
+    }
+    set name(mut self, value: Any) {
+        _name = value
+    }
+}
+
+
+⍝ 具名类型
+interface I {}
+
+
+abstract anonymous class I {
+
+}
+
+⍝ 结构类型
+anonymous interface PointA {
+    get x: f32,
+    get y: f32,
+}
+abstract anonymous class PointB {
+    get x() -> f32,
+    get y() -> f32,
+}
+
+
+
+a
+.into⟨T⟩
+.like⟨V⟩
+?.try_into⟨T⟩
+?.try_like⟨T⟩
+
+
+
+neural ResLayer {
+    forwoard(self, array: NDArray) {
+        array
+        .apply(Linear)
+        .apply(self.layer)
+    }
+    backward() {
+        let net = NetGraph(a) {
+            ⍝ Conv2D => Conv2D
+        }
+        NetChain {
+            Conv2D();
+            relu();
+            LinearLayer(3, 3);
+            sigmoid();
+            net;
+            relu();
+            LinearLayer(3, 3);
+            softmax();
+        }
+    }
+}
+
+
+
+trait A {
+    alias typus A = B
+    alias A = B
+}
+
+object: A {
+
+}
+
+new List() {
+
+}
+
+a.copy(deep) {
+item = 1
+}
+
+@copy(a, {})
+
+@clone(a, {})
+
+micro a(s: str) {
+
+}
+
+
+
+
+
+class Vector2 {
+    x: f64,
+    y: f64,
+}
+
+
+

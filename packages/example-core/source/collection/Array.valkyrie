@@ -1,0 +1,65 @@
+trait AnyList⟨T⟩ {
+    count(self) -> usize,
+}
+
+
+imply⟨T⟩ Array⟨T⟩: AnyList⟨T⟩ {
+    count(self) -> usize {
+        self.length
+    }
+}
+
+#instruction("data")
+trait AnyArray {
+
+}
+
+#instruction("array")
+class Array⟨T⟩ {
+    #instruction("array.len")
+    get length(self) {
+        ⍝ (array.len $ArrayType $self)
+    }
+    #instruction("array.new_default")
+    constructor(size: usize) {
+        ⍝ (array.new_default $ArrayType $size)
+    }
+    #instruction("array.new")
+    constructor(size: usize, initial: T) {
+        ⍝ (array.new $ArrayType $initial $size)
+    }
+    ⍝ new Array<u32> {0, 1, 2}
+    #instruction
+    collector(item: Iterator<Item=T>) {
+
+    }
+}
+
+#unchecked
+imply⟨T⟩ Array⟨T⟩ {
+    #instruction("array.get")
+    get_unchecked(self, offset: usize) -> T {
+        ⍝ (array.get $ArrayType $self $offset)
+    }
+    #instruction("array.get_u")
+    get_u(self, offset: usize) -> T {
+        ⍝ (array.get $ArrayType $self $offset)
+    }
+    #instruction("array.set")
+    set_unchecked(self, offset: usize, value: T) -> T {
+        ⍝ (array.set $ArrayType $self $value)
+    }
+    ⍝? - offset: the `offset` into the array at which to begin filling
+    ⍝? - value:  the `value` with which to fill
+    ⍝? - size:   the `size` of the filled slice
+    ⍝?
+    ⍝? traps if array is null or offset + size > length(array)
+    #instruction("array.fill")
+    fill_unchecked(self, offset: usize, size: usize, value: T) {
+        ⍝ (array.fill $ArrayType $self $offset $value $size)
+    }
+    #instruction("array.copy")
+    copy_unchecked⟨U⟩(self: Array⟨T⟩?, source_offset: usize, mut target: Array⟨U⟩?, target_offset: usize, size: usize) {
+        ⍝ (array.copy $TargetType $SourceType (ref.null $target) $target_offset (ref.null $self) $source_offset $size)
+    }
+}

@@ -1,0 +1,43 @@
+#instruction("char")
+class Ascii {
+    private _code: u8,
+    get code_point(self)-> u8 {
+        self._code
+    }
+    constructor(code: u8)-> Self / OutOfRange⟨u8⟩ {
+        if @release {
+            this._code == code
+        }
+        else {
+            if code < 127 {
+                this._code == code
+            }
+            else {
+                raise OutOfRange(code, 0, 127)
+            }
+        }
+    }
+}
+
+#convert
+imply Ascii {
+    try_from(code: u8)-> Result⟨Ascii, OutOfRange⟨u8⟩⟩ {
+        Ascii(code)
+    }
+    #unchecked
+    from(code: u8) {
+        new Ascii {_code = code}
+    }
+    into(self)-> u8 {
+        self._code
+    }
+}
+
+
+Ascii⸬try_from(120).unwrap_or("c")
+Unicode⸬try_from(120).unwrap_or("c")
+
+transparent typus char = std⸬text⸬Unicode
+transparent typus str = std⸬text⸬UTF8View
+transparent typus String = std⸬text⸬UTF8Text
+

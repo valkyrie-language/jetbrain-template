@@ -1,0 +1,81 @@
+new {}
+new {}
+new T {}
+new T() {}
+new() {}
+new List⟨T⟩ {}
+new List⟨T⟩(cap) {
+
+}
+
+
+class List {};
+class String {};
+
+a as Integer;
+a as List⟨T⟩;
+
+a is nil;
+a is null;
+a is None;
+a is Some(_);
+a is Some(1);
+
+a is ture;
+a is "";
+a is 1cm;
+a is Integer;
+a is ();
+a is (1, 2);
+a is (1, "1");
+a is (1, Some("1"));
+a is List<String>;
+
+a is Some(List<String>)
+
+⍝ a is Object {key: _}
+
+
+⍝ let List<String> = 2
+
+
+if a is Object {} {
+    then
+}
+⍝ if (a is Object {key: _}) {
+⍝     then
+⍝ }
+
+match a {
+    case List<String>:
+        then
+}
+
+for a in b {
+
+}
+
+
+
+⍝
+⍝ is Integer
+⍝ is (Integer)
+⍝ is Some(Integer)
+⍝ is Object { a: Integer, .. }
+⍝
+
+
+
+
+
+
+
+
+
+
+let Object {key} = a;
+
+
+
+
+⍝ date is { Month: 10, Day: 7, DayOfWeek: DayOfWeek::Friday }

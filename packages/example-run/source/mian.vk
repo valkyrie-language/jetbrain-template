@@ -1,0 +1,81 @@
+
+
+
+trait ContextProvider {
+
+}
+
+widget CounterProvider: ContextProvider {
+    #react(provider, consumer)
+    private count: u32 = count,
+    constructor(count: u32?) {
+        self.count = count ?? 0;
+    }
+
+    render(self) {
+        count
+    }
+
+    increase(self) {
+        count += 1;
+    }
+    decreate(self) {
+        count -= 1;
+    }
+
+    use_counter() {
+
+    }
+}
+
+widget App {
+    view() {
+        let (count, increase, decrease) = use_counter();
+        Vertical {
+            Span {
+                ⸿action.count.name
+                count
+            }
+            Button {
+                on_click = increase;
+                "+"
+            }
+            Button {
+                on_click = decrease;
+                "-"
+            }
+        }
+    }
+}
+
+
+
+
+render() {
+    let double = {count * 2}
+    reaction {
+        print("The `count` is {count} now, `double` is {double()}")
+    }
+    reaction_once {
+        print("The `count` is {count} now, `double` is {double()}")
+    }
+    reaction_batch {
+        @untrack(b)
+    }
+    Button {
+        on_click = {
+        count.update {count + 1}
+        }
+        "Click Me"
+    }
+
+    ErrorBoundary {
+        fallback = {
+
+        }
+        style = scss"""
+                div {
+                }
+            """
+    }
+}

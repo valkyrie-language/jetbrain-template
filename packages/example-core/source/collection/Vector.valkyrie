@@ -1,0 +1,158 @@
+class Vector⟨T⟩ {
+    private _ptr: Array⟨T⟩
+    private _len: usize
+
+    get length(self)-> usize {
+        self._len
+    }
+    get capacity(self) -> usize {
+        self._ptr.length
+    }
+    set capacity(self, `new`: usize) -> bool {
+        @todo
+    }
+    constructor(capacity: usize) {
+        this._ptr = Array(capacity)
+        this._len = 0
+    }
+    constructor(capacity: usize, initial: T) {
+        this._ptr = Array(capacity, initial)
+        this._len = capacity
+    }
+    ⍝ new Vector<u32> {1, 2u8, 3u32}
+    appender(mut self, into item: T) {
+        self.push_back(item.into)
+    }
+}
+
+#unchecked
+imply⟨T⟩ Vector⟨T⟩ {
+    get_unchecked(self, offset: usize) -> T {
+        self._ptr.get_unchecked(offset)
+    }
+    set_unchecked(self, offset: usize, value: T) {
+        self._ptr.set_unchecked(offset, value)
+    }
+}
+
+⍝? Scalable List Operator
+imply⟨T⟩ Vector⟨T⟩ {
+    ⍝? The new allocated array size depends on current size.
+    ⍝? The only reason to use `2` is that it generates the fewest instructions.
+    constant GROW_RATE: usize = 2;
+    grow(mut self)-> usize {
+        ⍝ ## 原理
+        ⍝ 设初始内存地址为 0 ~ 1, 则首次 grow 之后占用 1 ~ x, 第二次 grow 后占用 x ~ x^2...
+        ⍝ 令 x^n <= 1 + x + x^2 + ... + x^(n-2)
+        ⍝ 则每经过 n 次 grow, reallocate 可以复用最初的地址, 大大减少内存空洞
+        let size = GROW_RATE × self._ptr.length
+        unchecked {
+            ⍝ ## 改良
+            ⍝ 如果以后直接支持参数为 f32 的 grow 指令, 不妨改成如下值:
+            ⍝ x_3 ⩽ 1.324717957244746
+            ⍝ x_4 ⩽ 1.465571231876768 √
+            ⍝ x_5 ⩽ 1.534157744914267
+            ⍝ x_n <  1.618033988749895
+            self.expand_unchecked(size)
+        }
+        return size
+    }
+    #unchecked
+    shrink_unchecked(mut self, size: usize) {
+        // TODO: find exact erase range
+        loop offset in ⁅size:self._ptr.length⁆ {
+            self._ptr⁅offset⁆ = default
+        }
+        self._len = size
+    }
+    #unchecked
+    expand_unchecked(mut self, size: usize) {
+        let buffer = Array(size)
+        self._ptr.copy_unchecked(0, buffer, self._ptr.length)
+        self._ptr = buffer
+    }
+}
+
+imply⟨T⟩ Vector⟨T⟩ {
+
+}
+
+trait AnyList {
+    #predicate(scalable)
+    push(self),
+    #predicate(scalable)
+    resize(self),
+    #predicate(scalable)
+    shrink(self, size: usize)-> bool {
+        if size >= self.capacity {
+            return false
+        }
+        self.resize(size)
+        return true
+    }
+
+    #predicate(scalable)
+    expand(self, size: usize)-> bool {
+        if size <= self.capacity {
+            return false
+        }
+        self.resize(size)
+        return true
+    }
+
+    push() {}
+    pop() {}
+}
+
+⍝? Scalable List Operator
+imply⟨T⟩ Vector⟨T⟩: AnyList {
+    #lint⸬inefficient_operation(recommend=VectorDeque⸬push_head)
+    push_head(mut self, item: T) {
+
+    }
+    push_head(mut self, ..items: T) {
+        loop item in iter {
+            self.push_head()
+        }
+    }
+    prepend(mut self, ..item: T) {
+        self.prepend(item.reverse())
+    }
+    #lint⸬inefficient_operation(recommend=VectorDeque⸬drop_head)
+    drop_head(mut self)-> T? {
+
+    }
+    drop_head(mut self, size: usize)-> Iterator⟨Item=T⟩ {
+
+    }
+    insert(mut self, index: usize, item: T) {
+
+    }
+    #lint⸬recommend_alias(replace=Vector⸬push)
+    push_tail(mut self, item: T) {
+
+    }
+    #lint⸬recommend_alias(replace=Vector⸬push)
+    push_tail(mut self, ..item: T) {
+
+    }
+    #lint⸬recommend_alias(replace=Vector⸬pop)
+    drop_tail(mut self)-> T? {
+        self.drop_tail(1)
+    }
+    drop_tail(mut self, size: usize) -> Iterator⟨Item=T⟩ {
+
+    }
+    remove(mut self, index: usize) -> T? {
+
+    }
+    resize(mut self, size: usize) {
+        @scope_context(unchecked);
+        match {
+            when size > self.capacity:
+                self.expand_unchecked(size)
+            when size < self.capacity:
+                self.shrink_unchecked(size)
+        }
+    }
+}

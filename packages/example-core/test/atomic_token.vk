@@ -1,0 +1,28 @@
+1234_5678;
+16 m;
+16cm;
+
+16×*cm;
+16⁂00FFFF⁑-20cm;
+16.0⁑-20;
+
+
+62⁂01234546789abcdefghijklmn;
+
+class Decimal {
+    ⍝ `base⁂text⁑offset`
+    constructor(text: str, base: u8, offset: i32) {
+
+    }
+}
+
+json"{a: 0}"
+
+
+json ""
+
+NetGraph {
+    LinearLayer() ≫ relu() ≫ LinearLayer()
+}
+
+

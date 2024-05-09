@@ -1,0 +1,48 @@
+#instruction("char")
+class Unicode {
+    private _code: u32;
+    get code_point(self): u32 {
+        self._code
+    }
+    constructor(code: u32)-> Self / OutOfRange⟨u32⟩ {
+        if @release {
+            this._code == code
+        }
+        else {
+            if code < 16***10FFFF {
+                this._code == code
+            }
+            else {
+                raise OutOfRange(code, 0, 16***10FFFF)
+            }
+        }
+    }
+}
+
+#convert
+imply Unicode {
+    try_from(code: u32)-> Result⟨Ascii, OutOfRange⟨u32⟩⟩ {
+        Unicode(code)
+    }
+    #unchecked
+    from(code: u32) {
+        new Unicode {_code = code}
+    }
+    into(self)-> u32 {
+        self._code
+    }
+
+    from(ascii: Ascii) {
+        new Unicode {_code = ascii.code_point as u32}
+    }
+    try_into(self)-> Result⟨Ascii, OutOfRange⟨u32⟩⟩ {
+
+    }
+}
+
+imply Unicode {
+    infix `+`(self, rhs: u32) {
+
+    }
+    checked_add() { }
+}

@@ -1,0 +1,126 @@
+// mark impliment
+trait A {
+    typus A = A,
+}
+
+trait B: A {
+    typus A = A,
+}
+
+// mark impliment
+trait C = A + B;
+
+
+template A {
+
+}
+
+
+
+class MoveBehavior {
+    action() {
+        print("move")
+    }
+}
+class JumpBehavior {
+    action() {
+        print("jump")
+    }
+}
+
+
+
+
+abstract class PlayerBase(move: MoveBehavior, jump: JumpBehavior) {
+    damage: f64,
+    ⍝ self: PlayerBase
+    constructor(damage: f64) {
+        move()
+        jump()
+        this.damage = damage
+    }
+    hello(self),
+    attack(self) {
+        print("Player cause {damage} damage!")
+    }
+    infix `+=`(self, damage: f64){
+        self.damage += damage
+    }
+}
+⍝ E0000
+⍝ TRACE
+⍝ DEBUG
+⍝ ERROR
+#error("{class} can't call `{method}#{hash:X}`")
+⍝ [E0000][2024-05-08 23:47:16.476] Can't call abstract method `display` in `AbstractMethodError`
+⍝     at package.`module`.namespace.Class(File.valkyrie@offset)
+⍝     at package.`module`.namespace.Class(File.valkyrie@line:cloumn)
+⍝     于 package.`module`.namespace.Class(文件.valkyrie@line:cloumn)
+class AbstractMethodError {
+    class: Array⟨String⟩,
+    method: String,
+    hash: u64
+    constructor(class: String, method: String, hash: f64 = 0.0) {
+        this.class = class.split().collect();
+        this.method = method;
+        this.hash = violate {transmute⟨u64⟩(hash)}
+    }
+    display(self, mut f: Formatter) {
+        f.write("Can't call abstract method `{method}") ? ;
+        if self.hash != 0 {
+            f.write("#{hash:X}") ? ;
+        }
+        f.write("` in class `{class}`") ?
+    }
+}
+
+abstract class PlayerBase: MoveBehavior + JumpBehavior {
+    private move: MoveBehavior
+    private jump: JumpBehavior
+    public damage: f64,
+    constructor(damage: f64) {
+        this.move = MoveBehavior()
+        this.jump = JumpBehavior()
+        this.damage = damage
+    }
+    public action(self) {
+        // by MRO(Method Resolution Order)
+        self.move.action()
+    }
+    public hello(self) {
+        raise AbstractMethodError("PlayerBase", "hello", 0.0)
+    }
+    public attack(self) {
+        print("Player cause {damage} damage!")
+    }
+    infix `+=`(mut self, damage: f64){
+        self.damage += damage
+    }
+}
+
+
+
+
+class PlayerRoger(PlayerBase) {
+    ⍝ self: PlayerBase
+    ⍝ base: PlayerBase
+    constructor(damage: f64) {
+        base(damage)
+    }
+    override attack(self) {
+        print("Roger cause {damage} damage!")
+    }
+}
+
+PlayerRoger(10).attack()
+
+
+class PlayerRoger: PlayerBase {
+    private player_base: PlayerBase
+    constructor(damage: f64) {
+        this.player_base = PlayerBase(damage)
+    }
+    public attack(self) {
+        print("Roger cause {damage} damage!")
+    }
+}

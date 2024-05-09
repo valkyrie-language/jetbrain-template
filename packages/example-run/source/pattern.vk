@@ -1,0 +1,6 @@
+
+
+match a {
+    case Some(a) if a > 0 : 1;
+    case None   : 2;
+}

@@ -1,0 +1,25 @@
+unite ExampleError {
+    Custom {
+        message: str,
+    },
+}
+
+trait From {}
+
+imply ExampleError: From {
+    ⍝ unite has no constructor
+
+    ⍝ Intercept io errors
+    from(error: IoError) {
+        ⍝ Self = ExampleError
+        Self⸬Unknown
+    }
+}
+
+
+imply ExampleError⸬Unknown {
+    ⍝ Intercept io errors
+    constructor() {
+
+    }
+}

@@ -1,8 +1,3 @@
-
-
-
-
-
 #mutex
 eager singleton InterfaceManager {
     nice(self) {
@@ -24,32 +19,10 @@ singleton PlayerManager {
     }
     unitialize() {
     }
+    create(self) { }
 }
 
-
-InterfaceManager.nice()
-
-abstract class Interface {
-
-}
-widget Interface {
-    component {
-
-    }
-}
-
-widget Component {
-    component {
-
-    }
-
-}
-widget Component {
-    component {
-
-    }
-}
-
+PlayerManager.create()
 
 #pool(max = 2)
 singleton ObjectPool {
@@ -60,6 +33,8 @@ singleton ObjectPool {
 singleton ObjectPool {
     get_instance()
 }
+
+
 
 
 lazy singleton ObjectManager {
@@ -74,18 +49,9 @@ static singleton LoggerManager {
         print("")
     }
 }
-
-
-class List<T> {
-    static EMPTY: List<T> = new {}
+class List⟨T⟩ {
+    static EMPTY: List⟨T⟩ = new {}
     constructor() {
 
     }
 }
-
-
-
-let hashmap = json"{
-    a: 2
-}
-"
