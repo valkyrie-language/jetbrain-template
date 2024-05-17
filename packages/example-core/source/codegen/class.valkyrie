@@ -13,20 +13,20 @@ class Array⟨T⟩ {
 }
 
 
-// (type (struct))
+# (type (struct))
 struct EmptyStruct {}
 
-// (type (struct (field)))
+# (type (struct (field)))
 struct SingleFieldStruct {
     field: (),
 }
 
-// (type (struct (field i8)))
+# (type (struct (field i8)))
 struct SingleI8FieldStruct {
     field: i8,
 }
 
-// (type (struct (field i8 i8 i8 i8)))
+# (type (struct (field i8 i8 i8 i8)))
 struct FourI8FieldsStruct {
     field1: i8,
     field2: i8,
@@ -34,13 +34,13 @@ struct FourI8FieldsStruct {
     field4: i8,
 }
 
-// (type (struct (field $x1 i32) (field $y1 i32)))
+# (type (struct (field $x1 i32) (field $y1 i32)))
 struct TwoI32FieldsStruct {
     x1: i32,
     y1: i32,
 }
 
-// (type (struct (field i8 i16 i32 i64 f32 f64 anyref funcref (ref 0) (ref null 1))))
+# (type (struct (field i8 i16 i32 i64 f32 f64 anyref funcref (ref 0) (ref null 1))))
 struct MixedFieldsStruct {
     field1: i8,
     field2: i16,
@@ -48,27 +48,27 @@ struct MixedFieldsStruct {
     field4: i64,
     field5: f32,
     field6: f64,
-    field7: (), // anyref
-    field8: (), // funcref
-    field9: Option⟨Box⟨EmptyStruct⟩⟩, // (ref 0)
-    field10: Option⟨()⟩, // (ref null 1)
+    field7: (), # anyref
+    field8: (), # funcref
+    field9: Option⟨Box⟨EmptyStruct⟩⟩, # (ref 0)
+    field10: Option⟨()⟩, # (ref null 1)
 }
 
-// (type (struct (field i32 i64 i8) (field) (field) (field (ref null i31) anyref structref arrayref)))
+# (type (struct (field i32 i64 i8) (field) (field) (field (ref null i31) anyref structref arrayref)))
 struct ComplexStruct {
     field1: (i32, i64, i8),
     field2: (),
     field3: (),
-    field4: Option⟨()⟩, // (ref null i31)
-    field5: (), // anyref
-    field6: (), // structref
-    field7: (), // arrayref
+    field4: Option⟨()⟩, # (ref null i31)
+    field5: (), # anyref
+    field6: (), # structref
+    field7: (), # arrayref
 }
 
 
 
 
-// (type (struct (field $x2 i32) (field f32 f64) (field $y2 i32)))
+# (type (struct (field $x2 i32) (field f32 f64) (field $y2 i32)))
 struct NamedFieldsStruct {
     x2: i32,
     field1: (f32, f64),

@@ -89,4 +89,39 @@ micro batch_norm(epsilon: f64 = 1×*-6) -> BatchNorm {
     new BatchNorm {
         epsilon = epsilon
     }
+    EinsteinLayer("ij,jk")
+    ReshapeLayer("nchw>n(chw)")
+    ReshapeLayer("N C H W -> N H W C")
+    ReduceLayer("B C H W -> B H W", mean)
+    RepeatLayer("N C H W -> (repeat N) C H W", repeat = 4)
+    ⍝ # Flatten spatial dimensions
+    ReshapeLayer("N C H W -> N(C H W)")
 }
+
+
+⍝ einstein'...,...'(3, c)
+#compiler
+textual macro einstein(text: UTF8Text) -> AnyFunction {
+
+}
+
+⍝ einstein('...ii->...i', args)
+functional macro `einstein`(..args): NDArray {
+
+}
+
+
+
+
+
+
+
+
+einstein('I I -> I', a)
+
+einsum
+flattened = rearrange(tensor, 'b c h w -> b (c h w)')
+
+
+reduce(tensor, 'b c h w -> b h w', 'mean')
+rearranged = rearrange(tensor, 'b c h w -> b h w c')

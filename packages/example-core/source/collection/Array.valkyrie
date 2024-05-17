@@ -63,3 +63,4 @@ imply⟨T⟩ Array⟨T⟩ {
         ⍝ (array.copy $TargetType $SourceType (ref.null $target) $target_offset (ref.null $self) $source_offset $size)
     }
 }
+

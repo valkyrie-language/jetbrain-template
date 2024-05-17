@@ -1,0 +1,42 @@
+
+macro mm(..args: AnyNode, domain: DomainNode?): AnyNode {
+    @mm(args) {}
+}
+
+functional macro mm(..args: AnyNode, domain: LambdaNode?): AnyNode {
+    mm(args) {}
+}
+
+#mm(args) {}
+attributive macro mm(reciver: AnyNode, ..args: AnyNode, domain: LambdaNode?): AnyNode {
+
+}
+
+textual macro mm(text: TextLiteralNode): AnyNode {
+    mm'text'
+}
+
+numeric macro mm(number: NumberLiteralNode): AnyNode {
+    20mm
+}
+
+↯serde(camelCase)
+↯derive(Debug, Default)
+class Domainal {
+    field;
+    method();
+    modifier mm {
+        field_like;
+        method_like()
+        nested {
+
+        }
+    }
+    better dsl {
+
+    }
+}
+
+domainal macro mm(node: DomainNode): Iterator<Item=AnyNode> {
+
+}

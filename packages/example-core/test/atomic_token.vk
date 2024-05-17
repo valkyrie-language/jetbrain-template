@@ -18,11 +18,61 @@ class Decimal {
 
 json"{a: 0}"
 
+toml"
+a = 0
+"
 
-json ""
+yaml"
+a: 00
+"
+
 
 NetGraph {
     LinearLayer() ≫ relu() ≫ LinearLayer()
+}
+
+
+function a(j) {
+    loop i in j {
+        if i > 0 {
+
+        }
+    }
+}
+
+template b(j) {"
+    {% loop i in j %}
+        {% if i > 0 %}
+
+        {% if end %}
+    {% loop end %}
+"}
+
+
+neural InterfaceLayer {
+    constructor() {
+        data = json"{data: 0}"
+        data = @include_json("local/path")
+        data = json⸬decode("string")
+        data = new Self {
+
+        }
+    }
+    forward(self) {
+
+    }
+    backward(self) {
+
+    }
+}
+
+neural InterfaceLayer {
+    forward(self) {
+
+    }
+    backward(self) {
+
+    }
 }
 
 

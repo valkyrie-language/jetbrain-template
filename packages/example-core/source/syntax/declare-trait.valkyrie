@@ -1,4 +1,4 @@
-// mark impliment
+# mark impliment
 trait A {
     typus A = A,
 }
@@ -7,7 +7,7 @@ trait B: A {
     typus A = A,
 }
 
-// mark impliment
+# mark impliment
 trait C = A + B;
 
 
@@ -84,7 +84,7 @@ abstract class PlayerBase: MoveBehavior + JumpBehavior {
         this.damage = damage
     }
     public action(self) {
-        // by MRO(Method Resolution Order)
+        # by MRO(Method Resolution Order)
         self.move.action()
     }
     public hello(self) {

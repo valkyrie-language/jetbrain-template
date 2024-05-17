@@ -1,3 +1,5 @@
+namespace package.collection.vector;
+
 class Vector⟨T⟩ {
     private _ptr: Array⟨T⟩
     private _len: usize
@@ -63,7 +65,7 @@ imply⟨T⟩ Vector⟨T⟩ {
     filter(self, rejector: T -> bool, capacity: usize = 0) -> Vector⟨T⟩ {
         let mut reject = Vector(capacity)
         loop item in self {
-            if!predicate(item) {
+            if !predicate(item) {
                 reject.push(item)
             }
         }
@@ -103,7 +105,7 @@ imply⟨T⟩ Vector⟨T⟩ {
     }
     #unchecked
     shrink_unchecked(mut self, size: usize) {
-        // TODO: find exact erase range
+        # TODO: find exact erase range
         loop offset in ⁅size:self._ptr.length⁆ {
             self._ptr⁅offset⁆ = default
         }
@@ -181,7 +183,7 @@ imply⟨T⟩ Vector⟨T⟩: AnyList {
 
     }
     #lint⸬recommend_alias(replace=Vector⸬pop)
-    drop_tail(mut self) -> T ? {
+    drop_tail(mut self)-> T? {
         self.drop_tail(1)
     }
     drop_tail(mut self, size: usize) -> Iterator⟨Item=T⟩ {
@@ -200,3 +202,11 @@ imply⟨T⟩ Vector⟨T⟩: AnyList {
         }
     }
 }
+
+
+
+16⁂666⁑666cm;
+
+
+
+

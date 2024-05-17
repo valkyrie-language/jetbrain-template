@@ -50,7 +50,7 @@ class Fields {
     public get field3(self) {
         return self._field3
     }
-    \\
+    #
     public set field3(mut self, value: Integer) {
         self._field3 = value
     }

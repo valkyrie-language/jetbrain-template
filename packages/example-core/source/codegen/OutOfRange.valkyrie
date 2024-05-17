@@ -1,7 +1,7 @@
 namespace package.errors
 
-// [E2001][datatime] `{context}` out of range, expect `{_allow}`, found `{_found}`
-//     at caller.place(File.valkyrie:line:column)
+# [E2001][datatime] `{context}` out of range, expect `{_allow}`, found `{_found}`
+#     at caller.place(File.valkyrie:line:column)
 #error(⸿package.error.out_of_range(context, _allow, _found), code = 2001)
 class OutOfRange⟨T⟩ {
     public context: Utf8View?
