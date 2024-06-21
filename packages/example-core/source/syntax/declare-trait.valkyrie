@@ -11,11 +11,6 @@ trait B: A {
 trait C = A + B;
 
 
-template A {
-
-}
-
-
 
 class MoveBehavior {
     action() {
@@ -51,11 +46,12 @@ abstract class PlayerBase(move: MoveBehavior, jump: JumpBehavior) {
 ⍝ TRACE
 ⍝ DEBUG
 ⍝ ERROR
-#error("{class} can't call `{method}#{hash:X}`")
+
 ⍝ [E0000][2024-05-08 23:47:16.476] Can't call abstract method `display` in `AbstractMethodError`
 ⍝     at package.`module`.namespace.Class(File.valkyrie@offset)
 ⍝     at package.`module`.namespace.Class(File.valkyrie@line:cloumn)
 ⍝     于 package.`module`.namespace.Class(文件.valkyrie@line:cloumn)
+@.error("{class} can't call `{method}#{hash:X}`")
 class AbstractMethodError {
     class: Array⟨String⟩,
     method: String,

@@ -58,7 +58,24 @@ value!
 ⍝ value.unwrap_unchecked
 
 ⍝ a!?.b()
-
+class Fields {
+    ⍝ direct
+    get set
+    _field1: Integer
+    ⍝ auto
+    #get(public) {_field2}
+    #set(private) {_field2 = value}
+    _field2: Integer = 0;
+    ⍝ custom name
+    _field3: Integer = default
+    public get field3(self) {
+        return self._field3
+    }
+    #
+    public set field3(mut self, value: Integer) {
+        self._field3 = value
+    }
+}
 
 ⍝ 20?
 ⍝

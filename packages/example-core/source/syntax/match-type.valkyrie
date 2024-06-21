@@ -7,9 +7,9 @@ match mut x <- literal {
         bbb;
         ccc;
     type false:
-    type none:        \\ variable = none
-    type None:        \\ variant  = Option::None
-    type Option⸬None: \\ variant  = Option::None
+    type none:        # variable = none
+    type None:        # variant  = Option::None
+    type Option⸬None: # variant  = Option::None
     type 0:
     type 1:
     type 2:

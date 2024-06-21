@@ -11,7 +11,7 @@ let x: bool = expression();
 let x, y: (bool, bool) = expression();
 let ref x, mut y: (bool, bool) = expression();
 let (ref x, mut y): (bool, bool) = expression();
-let Some(x): Option⟨bool⟩ = expression();
+let Some(x: bool): Option⟨bool⟩ = expression();
 let [x, y, z]: List⟨bool⟩ = expression();
 let Object {x}: Object = expression();
 ⍝ let pattern binding
@@ -22,7 +22,6 @@ let mut a ← Object {x, y ← Some(z)} = expression();
 let a ← Some(x): Option⟨bool⟩ = expression();
 let ref a ← [x, y, z]: List⟨bool⟩ = expression();
 let mut a ← Object {x}: Object = expression();
-
 
 let Some(a): Option⟨bool⟩ ?= expression()
 if a is null {
@@ -37,59 +36,68 @@ if a is null {
 a ?: a;
 
 
-class Fields {
-    ⍝ direct
-    get set
-    _field1: Integer
-    ⍝ auto
-    #get(public) {_field2}
-    #set(private) {_field2 = value}
-    _field2: Integer = 0;
-    ⍝ custom name
-    _field3: Integer = default
-    public get field3(self) {
-        return self._field3
-    }
-    #
-    public set field3(mut self, value: Integer) {
-        self._field3 = value
-    }
-}
 
 
-let Some(a): Option⟨bool⟩ = expression() else {
-    return "early"
+let Some(a) ?= expression(args)
+# a? is avaliable here
+
+
+try let Some(a) = expression(args) else {
+    # bind failed
 };
+# a! is avaliable here
 
-try let a ← Some(b) = expression() if b is Integer {
-    print(a)
+try let a ← Some(b: bool): Option⟨bool⟩ = expression() { closure } if b is not true else {
+    print("require Some(true)")
 }
-try not Some(Integer) = expression() {
+print(a)
+print(b)
+
+
+
+expression(args) ?: 0
+
+match expression(args) {
+    case Some(a):
+        a
+    case None:
+        print("missing a")
+        0
+}
+
+
+
+
+
+if expression() is not Some(Integer) {
     print("require Integer")
 }
 
+# try not Some(Integer) = expression() then {
+#     print("require Integer")
+# }
+
 
 scope {
-    try let a = expression {}
-    try let [] = expression {}
-    try let () = expression {}
-    try let (a) = expression {}
-    try let Some(a) = expression {}
-    try let Object {a} = expression {}
-    try let Object {a, b: Option⟨bool⟩ = Some(b)} = expression {}
+    # let a ?= expression;
+    let [] ?= expression;
+    let () ?= expression;
+    let (a) ?= expression;
+    let Some(a) ?= expression;
+    let Object {a} ?= expression;
+    # let Object {a, b: Option⟨bool⟩ ?= Some(b)} = expression;
 }
 
-
-try let Some(x) = X {
-    if x > 0 {
-        x.method()
-    }
-}
-else {
+# let! Some(x) = X;
+let Some(x) ?= x;
+#
+try let Some(x) = X else {
 
 }
+# if x > 0 {
+#     x.method()
+# }
 
-
-let Some(x) = x else {
+try let Some(x) = x else {
     @panic
 }

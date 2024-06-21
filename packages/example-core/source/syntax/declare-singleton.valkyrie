@@ -49,6 +49,9 @@ static singleton LoggerManager {
         print("")
     }
 }
+
+
+
 class List⟨T⟩ {
     static EMPTY: List⟨T⟩ = new {}
     constructor() {

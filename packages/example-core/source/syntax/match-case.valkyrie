@@ -2,21 +2,27 @@ match literal {
     case null:
     case nil:
     case true | false:
-    case none:        \\ variable = none
-    case None:        \\ variant  = Option::None
-    case Option⸬None: \\ variant  = Option::None
-    case let None:    \\ variable = None
+    case
+        | none         # variable = none
+    then
+        print("none variable")
+    case
+        | None         # variant  = Option::None
+        | Option⸬None  # variant  = Option::None
+    then
+        print("none type")
+    case None = 0: # variable = None
     case 0:
-    case 1:
-    case 2:
+    case a = 1:
     case "":
     case '':
 }
 
 match tuple {
     case ():
-    case (a) | (a, ) if a > 0:
-    case (mut a, ref b):
+    case (a):
+    case (a, ):
+    case (mut a, ref b) if a > 0 && b > 0:
     case Tuple(a, b):
     case Tuple((a, b), c):
     case Tuple(Some(a), ⁜Unite⸬Variant):
@@ -34,13 +40,12 @@ match array {
     case [[[a], b], c]:
 }
 
-
 match `object` {
     case a:
     case {a}:
     case {a, }:
     case {a, b}:
     case Object {a, b}:
-    case Object {a ← {a, b}, c}:
+    case Object {a = {a, b}, c}:
     case Object {a: Option⟨Integer⟩ = Some(b), c: Integer}:
 }

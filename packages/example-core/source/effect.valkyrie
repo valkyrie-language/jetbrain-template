@@ -1,0 +1,128 @@
+↯effect⟨T⟩
+class DivideByZero⟨T⟩ {
+    dividend: T
+    builder(dividend: T) {
+        this.dividend = dividend
+    }
+
+    extract(self) -> (dividend: T) {
+        (dividend = self.dividend)
+    }
+}
+
+imply⟨T⟩ DivideByZero⟨T⟩: Effect {
+    type Resume = T,
+}
+
+↯primitive(u32)
+class u32 {}
+
+↯derive(Operators)
+imply u32 {
+    # ↯specialized(0)
+    # infix `+`(self, rhs: u32) {
+    #
+    # }
+    # ↯specialized(-100)
+    # infix `+`(self, rhs: i32) {
+    #
+    # }
+    ↯unchecked
+    ↯instruction(i32.div_u)
+    add_unchecked(self, rhs: u32) -> u32 {
+        """
+        (param $self)
+        (param $rhs)
+        (result i32)
+        (i32.div_s
+            local.get $self
+            local.get $rhs
+        )
+        """
+    }
+    # ↯specialized(0)
+    # infix `-`(self, rhs: u32) {
+    #
+    # }
+    # ↯specialized(-100)
+    # infix `-`(self, rhs: i32) {
+    #
+    # }
+    # infix `/=`(mut self, rhs: u32) {
+    #     self = self / rhs
+    # }
+    # infix `/`(self, rhs: u32)-> u32 {
+    #     if rhs == 0 {
+    #         raise DivideByZero(rhs)
+    #     }
+    #     else {
+    #         self.div_unchecked(rhs)
+    #     }
+    # }
+    ↯unchecked
+    ↯instruction(i32.div_u)
+    div_unchecked(self, rhs: u32) -> u32 {
+        """
+        (param $self)
+        (param $rhs)
+        (result i32)
+        (i32.div_s
+            local.get $self
+            local.get $rhs
+        )
+        """
+    }
+}
+
+↯derive(Converters)
+imply u32 {
+    ↯specialized(0)
+    explicit into(self) -> i32 {
+        """
+        (param $self)
+        (param $rhs)
+        (result i32)
+        (i32.div_s
+            local.get $self
+            local.get $rhs
+        )
+        """
+    }
+    ↯specialized(-100)
+    implicit into(self) -> u64 {
+        """
+        (param $self)
+        (param $rhs)
+        (result i32)
+        (i32.div_s
+            local.get $self
+            local.get $rhs
+        )
+        """
+    }
+}
+
+class Array<T> {
+
+}
+
+
+loop {
+    ↸unroll(4)
+}
+
+
+function resume_div(a: u32, b: u32) -> i32 {
+    let good: u32 = catch a / b {
+        case DivideZero(0): resume -2u32
+        case DivideZero(a): return -1i32
+    }
+    good as i32
+}
+
+resume_div(9, 9) # +1, by noraml return
+resume_div(0, 9) #  0, by noraml return
+resume_div(9, 0) # -1, by early return
+resume_div(0, 0) # -2, by resume
+
+

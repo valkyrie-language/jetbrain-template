@@ -2,7 +2,7 @@ namespace package.errors
 
 # [E2001][datatime] `{context}` out of range, expect `{_allow}`, found `{_found}`
 #     at caller.place(File.valkyrie:line:column)
-#error(⸿package.error.out_of_range(context, _allow, _found), code = 2001)
+↯error(⸿package.error.out_of_range(context, _allow, _found), code = 2001)
 class OutOfRange⟨T⟩ {
     public context: Utf8View?
     private _allow: Range⟨T⟩
@@ -15,7 +15,7 @@ class OutOfRange⟨T⟩ {
         this._allow = Range(min, max)
         this._found = found
     }
-    ⍝ extractor(self) -> (context: Utf8View?, allow: Range⟨T⟩, found: T) {
-    ⍝     (self.context, self._allow, self._found)
-    ⍝ }
+    extractor(self) -> (context: Utf8View?, allow: Range⟨T⟩, found: T) {
+        (self.context, self._allow, self._found)
+    }
 }

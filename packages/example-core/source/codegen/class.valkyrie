@@ -1,13 +1,16 @@
 #primitive(anyref)
 class AnyType {}
 
-#primitive(structref)
+↯primitive(structref)
 class Dynamic {}
 
-#primitive(arrayref)
+
+
+↯primitive(arrayref)
 class AnyArray {}
 
-#primitive(array)
+↯derive(Show)
+↯primitive(array)
 class Array⟨T⟩ {
 
 }
@@ -59,10 +62,10 @@ struct ComplexStruct {
     field1: (i32, i64, i8),
     field2: (),
     field3: (),
-    field4: Option⟨()⟩, # (ref null i31)
-    field5: (), # anyref
-    field6: (), # structref
-    field7: (), # arrayref
+    field4: Option⟨i64⟩, # (ref null i31)
+    field5: AnyType, # anyref
+    field6: AnyStructure, # structref
+    field7: AnyArray, # arrayref
 }
 
 
